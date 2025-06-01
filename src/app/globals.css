@@ -1,6 +1,8 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+/* Your custom styles here */
+
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {

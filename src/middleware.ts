@@ -10,7 +10,7 @@ export function middleware(req: NextRequest) {
   // 🔒 Redirect unauthenticated users from protected routes
   if (protectedPaths.some((path) => pathname.startsWith(path))) {
     if (!token) {
-      const loginUrl = new URL("/auth/login", req.url);
+      const loginUrl = new URL("/login", req.url);
       return NextResponse.redirect(loginUrl);
     }
   }
@@ -18,7 +18,7 @@ export function middleware(req: NextRequest) {
   // 🔁 Redirect authenticated users away from public routes
   if (publicPaths.some((path) => pathname.startsWith(path))) {
     if (token) {
-      const homeUrl = new URL("/newsfeed", req.url);
+      const homeUrl = new URL("/home", req.url);
       return NextResponse.redirect(homeUrl);
     }
   }
