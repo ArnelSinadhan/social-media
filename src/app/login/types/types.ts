@@ -13,10 +13,20 @@ export interface LoginInput {
   email: string;
   password: string;
 }
-
+export interface TokenResponse {
+  access_token: string;
+  token_type: string;
+}
 export interface LoginResult {
   success: boolean;
   errorCode?: string;
   errorMessage?: string;
-  data?: any;
+  data?: TokenResponse;
+}
+
+export interface ErrorType {
+  error?: {
+    code?: string;
+    message?: string;
+  };
 }

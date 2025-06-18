@@ -47,7 +47,7 @@ export default function Homepage() {
             <CardContent className="p-4">
               <div className="flex items-center gap-3 mb-2">
                 <Avatar>
-                  <AvatarImage src={`/avatar${id}.jpg`} />
+                  <AvatarImage src={`/avatar${id}.avif`} />
                   <AvatarFallback>U{id}</AvatarFallback>
                 </Avatar>
                 <div>

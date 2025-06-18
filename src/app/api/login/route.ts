@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { login } from "../../../infrastracture/auth/api";
+import { ErrorType } from "../../login/types/types";
 
 export async function POST(req: Request) {
   const { email, password } = await req.json();
@@ -15,13 +16,18 @@ export async function POST(req: Request) {
     });
 
     return response;
-  } catch (error: any) {
+  } catch (error: unknown) {
     let errorCode = "LOGIN_FAILED";
     let errorMessage = "Unable to login. Please try again.";
 
-    if (error?.error?.code) {
-      errorCode = error.error.code;
-      errorMessage = error.error.message || errorMessage;
+    if (typeof error === "object" && error !== null && "error" in error) {
+      const errObj = (error as ErrorType).error;
+      if (errObj?.code) {
+        errorCode = errObj.code;
+      }
+      if (errObj?.message) {
+        errorMessage = errObj.message;
+      }
     } else if (error instanceof TypeError) {
       errorCode = "NETWORK_ERROR";
       errorMessage = "Cannot reach server. Please try again later.";
