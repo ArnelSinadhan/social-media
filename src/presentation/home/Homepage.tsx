@@ -33,7 +33,7 @@ export default function Homepage() {
         <Card className="mb-4">
           <CardContent className="p-4 flex gap-3 items-center">
             <Avatar>
-              <AvatarImage src="/user.jpg" />
+              <AvatarImage src="/user.avif" />
               <AvatarFallback>U</AvatarFallback>
             </Avatar>
             <Input placeholder="What's on your mind?" />
@@ -73,7 +73,7 @@ export default function Homepage() {
           <div key={id} className="flex items-center justify-between mb-4">
             <div className="flex items-center gap-2">
               <Avatar className="h-8 w-8">
-                <AvatarImage src={`/avatar${id}.jpg`} />
+                <AvatarImage src={`/avatar${id}.avif`} />
                 <AvatarFallback>SU{id}</AvatarFallback>
               </Avatar>
               <div>
